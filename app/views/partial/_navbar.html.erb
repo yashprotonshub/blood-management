@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Donation</a>
+      <%= link_to "BLOOD BANK WEBSITE", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,6 +22,7 @@
             <li class="nav-item">
                 <%= link_to "Blood Stock", user_blood_stock_path(current_user), class: "nav-link active" %>
             </li>
+            
             </ul>
         </div>
         <% end %>
@@ -34,5 +35,6 @@
                 </li>
             </ul>
         </div>
+
     <% end %>
   </nav>
