@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blood_groups: MyString
+  quantity: 1
+  user: one
+
+two:
+  blood_groups: MyString
+  quantity: 1
+  user: two

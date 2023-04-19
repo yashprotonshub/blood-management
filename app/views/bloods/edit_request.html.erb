@@ -1,0 +1,20 @@
+<%= form_with(model: current_user, url: user_blood_update_request_path(current_user)) do |f| %> 
+    
+    <div>
+        <%= f.label :blood_group, "Blood Group Type" %> 
+        <%= f.select :blood_group, ["B+", "B-", "A+", "A-", "AB+", "AB-", "O+", "O-"] %> <br> <br>
+    </div>
+
+    
+    <div>
+        <%= f.label :reason %>
+        <%= f.text_area :reason %>
+    </div>
+
+    <div>
+        <br />
+        <%= f.submit "Donate" %>
+        <br />
+    </div>
+
+<% end %>
