@@ -8,3 +8,7 @@
 
 <%= link_to "Request", user_blood_edit_request_path(current_user) %>
 <%= link_to "Donate", user_blood_edit_donation_path(current_user) %>
+
+<%= link_to "All Donations", user_path(current_user) %>
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
