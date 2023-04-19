@@ -19,7 +19,9 @@
             <li class="nav-item">
                 <%= link_to "All Donations History", user_path(current_user), class: "nav-link active" %>
             </li>
-          
+            <li class="nav-item">
+                <%= link_to "Blood Stock", user_blood_stock_path(current_user), class: "nav-link active" %>
+            </li>
             </ul>
         </div>
         <% end %>

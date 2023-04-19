@@ -1,0 +1,22 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .grid-item {
+    background-color: #ffffff;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 0 10px #888;
+  }
+  .grid-item-text{
+    font-size: 40px;
+}
+
+.stock-heading{
+    text-align: center;
+    padding: 40px;
+    font-size: 40px;
+}

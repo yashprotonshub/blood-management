@@ -1,0 +1,8 @@
+<div class="stock-heading"> Blood Stock </div>
+<div class="grid-container">
+    <% @all_groups_details.each do |i| %>
+      <div class="grid-item">
+        <p><%= content_tag :p, i.blood_group, class: "grid-item-text" %> <%= i.unit %></p>
+      </div>
+    <% end %>
+</div>

@@ -4,4 +4,8 @@ class UsersController < ApplicationController
         @all_donations=current_user.alldonations
     end
 
+    def stocks
+        @all_groups_details = Blood.all
+    end
+
 end

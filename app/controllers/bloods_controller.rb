@@ -1,6 +1,6 @@
 class BloodsController < ApplicationController
     def index
-        @all_groups_details = Blood.all
+        
     end
 
     def edit_request
