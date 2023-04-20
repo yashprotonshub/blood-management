@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     
     def show
-        @all_donations=current_user.alldonations
+        @all_donations=current_user.alldonations.paginate(page: params[:page], per_page: 4)
     end
 
     def stocks
