@@ -1,18 +1,18 @@
 <div class="container">
-    <div class="element1">S. No.</div>
+    <div class="element1"> </div>
     <div class="element2">Name</div>
     <div class="element3">Blood Group Name</div>
     <div class="element4">Reason</div>
     <div class="element5"></div>
-  </div>
+</div>
 
 <% for i in @all_users %>
     <% c=1 %>
     <% if i.id != current_user.id %>
         <% if User.find(i.id).allrequest.status == 'pending' %>
             <div class="container">
-                <div class="element1"><%= c %>) &nbsp;</div>
-                <div class="element2"><%= User.find(i.id).name  %></div>
+                <div class="element1"></div>
+                <div class="element2"><%= link_to User.find(i.id).name, user_user_profile_page_path(i.id)  %></div>
                 <div class="element2"><%= User.find(i.id).allrequest.blood_group_name %></div>
                 <div class="element2"><%= User.find(i.id).allrequest.reason %></div>
                 <div class="element2"> <%= link_to "Accept", user_update_accept_request_path(i.id), method: :patch , class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reject", user_update_reject_request_path(i.id), method: :patch, class: "btn btn-danger" %></div>
@@ -23,4 +23,6 @@
 <% end %>
 <% if c==1 %>
     <h1 style="text-align:center; padding:400px;">No Reqest Found </h1>
+<% else %>
+
 <% end %>

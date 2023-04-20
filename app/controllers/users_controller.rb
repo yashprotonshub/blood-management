@@ -15,4 +15,8 @@ class UsersController < ApplicationController
     def admin_all_request
         @all_users = User.all
     end
+
+    def user_profile_page
+        @user_details= User.find(params[:user_id])
+    end
 end
