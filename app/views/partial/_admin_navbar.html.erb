@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <%= link_to "BLOOD BANK WEBSITE", root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <% if user_signed_in? %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <%= link_to "Home", root_path, class: "nav-link active" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "All Requests ", user_admin_all_request_path(current_user), class: "nav-link active" %>
+            </li>
+            
+            <li class="nav-item">
+                <%= link_to "All Donations History", user_path(current_user), class: "nav-link active" %>
+            </li>
+            <li class="nav-item">
+                <% if current_user.allrequest.present? %>
+                    <%= link_to "Your Request", user_user_request_path(current_user), class: "nav-link active" %>
+                <% else %>
+                    
+                <% end  %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Blood Stock", user_blood_stock_path(current_user), class: "nav-link active" %>
+            </li>
+            
+            </ul>
+        </div>
+        <% end %>
+    </div>
+    <% if user_signed_in? %>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                </li>
+            </ul>
+        </div>
+
+    <% end %>
+  </nav>

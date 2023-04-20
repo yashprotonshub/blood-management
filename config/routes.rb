@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     patch "/update_donation", to: "bloods#update_donation",  as: 'blood_update_donation' 
     get "/stocks", to: "users#stocks", as: 'blood_stock'
     get "/user_request", to: "users#user_request", as: 'user_request'
+    get "/admin_all_request", to: "users#admin_all_request", as: 'admin_all_request'
     resources :bloods
   end
 

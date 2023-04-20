@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20230420081253_add_status_to_users.rb

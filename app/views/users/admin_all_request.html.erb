@@ -1,0 +1,16 @@
+
+<% for i in @all_users %>
+<% c=1 %>
+    <% if i.id != current_user.id %>
+        <% if User.find(i.id).allrequest.present? %>   
+            <p> 
+                <%= c %>) &nbsp;
+                <%= User.find(i.id).allrequest %>
+            </p>
+        <% end %>
+    <% end %>
+
+<% end %>
+<% if c=1 %>
+    <h1 style="text-align:center; padding:400px;">No Reqest Found </h1>
+<% end %>

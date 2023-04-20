@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render 'partial/navbar' %>
+    <% if user_signed_in? && current_user.isadmin %>
+      <%= render 'partial/admin_navbar' %>
+    <% else %>
+      <%= render 'partial/navbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

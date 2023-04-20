@@ -12,4 +12,7 @@ class UsersController < ApplicationController
         @request= current_user.allrequest
     end
 
+    def admin_all_request
+        @all_users = User.all
+    end
 end
