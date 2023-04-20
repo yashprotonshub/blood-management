@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2023_04_20_081926) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "f"
+    t.string "status", default: "pending"
     t.index ["user_id"], name: "index_allrequests_on_user_id"
   end
 

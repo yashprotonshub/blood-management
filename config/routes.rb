@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get "/stocks", to: "users#stocks", as: 'blood_stock'
     get "/user_request", to: "users#user_request", as: 'user_request'
     get "/admin_all_request", to: "users#admin_all_request", as: 'admin_all_request'
+    patch "/update_accept_request", to: "allrequests#update_accept_request", as: 'update_accept_request'
+    patch "/update_reject_request", to: "allrequests#update_reject_request", as: 'update_reject_request'
     resources :bloods
   end
 
