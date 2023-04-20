@@ -4,6 +4,7 @@ class BloodsController < ApplicationController
     end
 
     def edit_request
+        @blood_groups = Blood.where("unit > 0").pluck(:blood_group)
     end
 
     def edit_donation

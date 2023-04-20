@@ -8,4 +8,7 @@ class UsersController < ApplicationController
         @all_groups_details = Blood.all
     end
 
+    def user_request
+    end
+
 end
