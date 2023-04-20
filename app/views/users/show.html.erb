@@ -1,9 +1,11 @@
-<h1>All Donations History </h1>
+<h1 style="font-size: 30px; text-align:center; padding:30px;">All Donations History </h1>
 
 <% for i in @all_donations %>
-    <p>
+<% c=1 %>
+    <p style="font-size: 30px; text-align:center; padding:30px;" > 
+        <%=c %>)
+
         <%= i.blood_group_name %> &nbsp; <%= i.unit %> &nbsp; <%= i.created_at %>
+        <% c+=1 %>
     </p>
 <% end %>
-
-<%= link_to "Back", root_path %>
