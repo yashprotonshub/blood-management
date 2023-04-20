@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     end
 
     def user_request
+        @request= current_user.allrequest
     end
 
 end
