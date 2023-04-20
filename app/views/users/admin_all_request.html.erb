@@ -15,7 +15,7 @@
                 <div class="element2"><%= User.find(i.id).name  %></div>
                 <div class="element2"><%= User.find(i.id).allrequest.blood_group_name %></div>
                 <div class="element2"><%= User.find(i.id).allrequest.reason %></div>
-                <div class="element2"> <%= link_to "Accept", user_update_accept_request_path(i.id), method: :patch %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reject", user_update_reject_request_path(i.id), method: :patch %></div>
+                <div class="element2"> <%= link_to "Accept", user_update_accept_request_path(i.id), method: :patch , class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reject", user_update_reject_request_path(i.id), method: :patch, class: "btn btn-danger" %></div>
             </div>
             <% c=c+1 %>
         <% end %>
