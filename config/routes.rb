@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     patch "/update_accept_request", to: "allrequests#update_accept_request", as: 'update_accept_request'
     patch "/update_reject_request", to: "allrequests#update_reject_request", as: 'update_reject_request'
     get "/user_profile_page", to: "users#user_profile_page", as: 'user_profile_page'
+    get "/admin_all_donations", to: "users#admin_all_donations", as: 'admin_all_donations'
     resources :bloods
   end
 

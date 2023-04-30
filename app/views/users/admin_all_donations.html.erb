@@ -1,0 +1,21 @@
+<h1 style="font-size: 30px; text-align:center; padding:30px;">All Donations History </h1>
+<p style="font-size: 30px; text-align:center; padding:30px;" > 
+                    
+    
+    Name &nbsp; Blood Group Name &nbsp; Date
+    
+</p>
+<% for i in @all_donations %>
+    <% if i.id == current_user.id %>
+        
+    <% else %>
+        <% for j in i.alldonations %>
+            <p style="font-size: 30px; text-align:center; padding:30px;" > 
+                    
+    
+                <%= i.name %> &nbsp; <%= j.blood_group_name %> &nbsp; <%= j.unit %> &nbsp; <%= j.created_at %>
+                
+            </p>
+        <% end %>    
+    <% end %>
+<% end %>

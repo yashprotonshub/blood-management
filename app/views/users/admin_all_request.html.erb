@@ -21,8 +21,6 @@
                 <div class="element2"> <%= link_to "Accept", user_update_accept_request_path(i.id), method: :patch , class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reject", user_update_reject_request_path(i.id), method: :patch, class: "btn btn-danger" %></div>
                 
             </div>
-            
-            <%= c %>
-        <% end %>
+            <% end %>
     <% end %>
 <% end %>

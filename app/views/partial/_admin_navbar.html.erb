@@ -15,7 +15,7 @@
             </li>
             
             <li class="nav-item">
-                <%= link_to "All Donations History", user_path(current_user), class: "nav-link active" %>
+                <%= link_to "All Donations History", user_admin_all_donations_path(current_user), class: "nav-link active" %>
             </li>
             <li class="nav-item">
                 <% if current_user.allrequest.present? %>
