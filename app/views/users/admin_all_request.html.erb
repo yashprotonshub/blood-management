@@ -1,26 +1,71 @@
-
-
-<% for i in @all_users %>
-    
-    <% if i.id != current_user.id %>
-        <% if User.find(i.id).allrequest == nil %>
-            <h1 style="text-align:center; padding:400px;">No Reqest Found </h1>    
-        <% else %>
-            <div class="container">
-                <div class="element1"> </div>
-                <div class="element2">Name</div>
-                <div class="element3">Blood Group Name</div>
-                <div class="element4">Reason</div>
-                <div class="element5"></div>
-            </div>
-            <div class="container">
-                <div class="element1"></div>
-                <div class="element2"><%= link_to User.find(i.id).name, user_user_profile_page_path(i.id), style:"text-decoration:none; color:inherit;" %></div>
-                <div class="element2"><%= User.find(i.id).allrequest.blood_group_name %></div>
-                <div class="element2"><%= User.find(i.id).allrequest.reason %></div>
-                <div class="element2"> <%= link_to "Accept", user_update_accept_request_path(i.id), method: :patch , class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reject", user_update_reject_request_path(i.id), method: :patch, class: "btn btn-danger" %></div>
-                
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-size: 18px;
+        }
+        
+        table {
+          margin: 0 auto;
+          border-collapse: collapse;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+        
+        th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <% if Allrequest.count==0 %>
+        <h1 style="text-align:center; padding:400px;">No Requests Found </h1>
+    <% else %>
+        <% for i in @all_users %>
+            <% if i.id != current_user.id %>
+                <h1 style="font-size: 30px; text-align:center; padding:30px;">All Request</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Blood Group Name</th>
+                            <th>Reason</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for i in @all_users %>
+                            <% if i.id != current_user.id %> 
+                                <tr>
+                                    <td>  <%= link_to User.find(i.id).name, user_user_profile_page_path(i.id), style:"text-decoration:none; color:inherit;" %>  </td>
+                                    <td>  <%= User.find(i.id).allrequest.blood_group_name %> </td>
+                                    <td>  <%= User.find(i.id).allrequest.reason %> </td>
+                                    <% if User.find(i.id).allrequest.status=="pending" %>
+                                        <td> <%= link_to "Accept", user_update_accept_request_path(i.id), method: :patch , class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reject", user_update_reject_request_path(i.id), method: :patch, class: "btn btn-danger" %> </td>
+                                    <% else %>
+                                        <td> <%= User.find(i.id).allrequest.status %> </td>
+                                    <% end %>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    </tbody>
+                </table>
             <% end %>
+        <% end %>
     <% end %>
-<% end %>
+</body>
+
+</html>
+
+
+

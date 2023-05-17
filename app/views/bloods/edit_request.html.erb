@@ -1,24 +1,23 @@
-<% if current_user.allrequest.present? %>
-    <h1 style="text-align:center; padding:400px;">You Made a Request already for today. Come Back Tommorrow!! </h1>
-<% else %>
-    <%= form_with(model: current_user, url: user_blood_update_request_path(current_user)) do |f| %> 
+<div class="donation-form">
+
+    <% if current_user.allrequest.present? %>
+        <h1 style="text-align:center; padding:400px;">You Made a Request already for today. Come Back Tommorrow!! </h1>
+    <% else %>
+        <%= form_with(model: current_user, url: user_blood_update_request_path(current_user)) do |f| %> 
+            <div>
+                <%= f.label :blood_group, "Blood Group Type" %> 
+                <%= f.select :blood_group, @blood_groups     %> <br> <br>
+            </div>
+            <div>
+                <%= f.label :reason %>
+                <%= f.text_area :reason %>
+            </div>
     
-        <div>
-            <%= f.label :blood_group, "Blood Group Type" %> 
-            <%= f.select :blood_group, @blood_groups     %> <br> <br>
-        </div>
-
-    
-        <div>
-            <%= f.label :reason %>
-            <%= f.text_area :reason %>
-        </div>
-
-        <div>
-            <br />
-            <%= f.submit "Request" %>
-            <br />
-        </div>
-
+            <div>
+                <br />
+                <%= f.submit "Request" %>
+                <br />
+            </div>
+        <% end %>
     <% end %>
-<% end %>
+</div>

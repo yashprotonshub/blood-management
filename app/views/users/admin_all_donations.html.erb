@@ -1,21 +1,64 @@
-<h1 style="font-size: 30px; text-align:center; padding:30px;">All Donations History </h1>
-<p style="font-size: 30px; text-align:center; padding:30px;" > 
-                    
-    
-    Name &nbsp; Blood Group Name &nbsp; Date
-    
-</p>
-<% for i in @all_donations %>
-    <% if i.id == current_user.id %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-size: 18px;
+        }
         
+        table {
+          margin: 0 auto;
+          border-collapse: collapse;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+        
+        th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <% if Alldonation.count==0 %>
+    <h1 style="text-align:center; padding:400px;">No Donations Found </h1>
     <% else %>
-        <% for j in i.alldonations %>
-            <p style="font-size: 30px; text-align:center; padding:30px;" > 
-                    
-    
-                <%= i.name %> &nbsp; <%= j.blood_group_name %> &nbsp; <%= j.unit %> &nbsp; <%= j.created_at %>
-                
-            </p>
-        <% end %>    
+        <h1 style="font-size: 30px; text-align:center; padding:30px;">All Donations History </h1>
+        <table>
+            <thead>
+                <tr>
+                    <th> Name </th>    
+                    <th> Blood Group Name </th>
+                    <th> Unit </th>
+                    <th> Date Time </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for i in @all_donations %>
+                    <% if i.id == current_user.id %>
+                    <% else %>
+                        <% for j in i.alldonations %>  
+                            <tr>
+                                <td> <%= i.name %> </td>
+                                <td>  <%= j.blood_group_name %>  </td>
+                                <td>  <%= j.unit %> </td>
+                                <td>  <%= j.created_at %> </td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </tbody>
+        </table>
     <% end %>
-<% end %>
+</body>
+</html>
+
+

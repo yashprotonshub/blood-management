@@ -1,12 +1,55 @@
-<h1 style="font-size: 30px; text-align:center; padding:30px;">All Donations History </h1>
-
-<% for i in @all_donations %>
-<% c=1 %>
-    <p style="font-size: 30px; text-align:center; padding:30px;" > 
-        <%=c %>)    
-
-        <%= i.blood_group_name %> &nbsp; <%= i.unit %> &nbsp; <%= i.created_at %>
-        <% c+=1 %>
-    </p>
-<% end %>
-<%= will_paginate @all_donations, :page_links => false, class:"page-item active", style: "padding-left:750px; font-size:30px; padding-top:100px; " %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-size: 18px;
+        }
+        
+        table {
+          margin: 0 auto;
+          border-collapse: collapse;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+        
+        th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <% if current_user.alldonations.count==0 %>
+        <h1 style="text-align:center; padding:400px;">You didn't Donated Any Blood Unit </h1>
+    <% else %>
+        <h1 style="font-size: 30px; text-align:center; padding:30px;">All Donations History </h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Blood Group Name</th>
+                    <th>Unit</th>
+                    <th>Date Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for i in @all_donations %>  
+                    <tr>
+                        <td>  <%= i.blood_group_name %>  </td>
+                        <td>  <%= i.unit %> </td>
+                        <td>  <%= i.created_at %> </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% end %>
+</body>
+</html>
